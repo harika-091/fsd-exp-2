@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Lion Frames (single-file, working link)</title>
+  <style>
+    html,body { height:100%; margin:0; font-family: Arial, Helvetica, sans-serif; }
+    header { text-align:center; padding:14px; background:#004080; color:#fff; }
+    .container { display:grid; grid-template-columns: 1fr 1fr 1fr; height: calc(100% - 68px); } /* reserve header height */
+    iframe { width:100%; height:100%; border:0; display:block; }
+    .frame-title { font-size:16px; margin:0 0 8px 0; }
+
+    @media (max-width:800px) { .container { grid-template-columns: 1fr; grid-auto-rows: 1fr 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lion Example using Iframes (single HTML file)</h1>
+  </header>
+
+  <div class="container">
+   
+    <iframe title="Lion Image"
+      srcdoc='<!doctype html><html><head><meta charset="utf-8"><style>body{font-family:Arial;padding:12px;text-align:center}img{max-width:100%;height:auto}</style></head><body><h3 class="frame-title">Frame 1: Lion Image</h3><img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg" alt="Lion"></body></html>'>
+    </iframe>
+
+    
+    <iframe title="About Lion"
+      srcdoc='<!doctype html><html><head><meta charset="utf-8"><style>body{font-family:Arial;padding:12px}</style></head><body><h3 class="frame-title">Frame 2: About Lion</h3><p>The <strong>lion</strong> (Panthera leo) is a large carnivorous feline often called the <em>"King of the Jungle"</em>. Lions live in social groups called <em>prides</em> and are known for their strength, mane (males), coordinated hunting and loud roar.</p></body></html>'>
+    </iframe>
+
+   
+    <iframe title="Lion Link"
+      srcdoc='<!doctype html><html><head><meta charset="utf-8"><style>body{font-family:Arial;padding:12px}a{word-break:break-word}</style></head><body><h3 class="frame-title">Frame 3: Lion Link</h3><p><a href="https://en.wikipedia.org/wiki/Lion" onclick="window.top.location=this.href; return false;">Click here to know more about Lions (opens the full page)</a></p><p><small>If you prefer a new tab, right-click → Open in new tab.</small></p></body></html>'>
+    </iframe>
+  </div>
+
+  
+  <noscript>
+    <div style="padding:14px;">
+      <h3>Fallback (no scripts)</h3>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg" alt="Lion" width="300">
+      <p>The lion is the king of the jungle. <a href="https://en.wikipedia.org/wiki/Lion" target="_blank" rel="noopener">Learn more</a></p>
+    </div>
+  </noscript>
+</body>
+</html>
